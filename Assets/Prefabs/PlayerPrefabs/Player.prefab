@@ -166,6 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7448398249846719788}
+  - component: {fileID: 5688610910068141960}
   m_Layer: 0
   m_Name: LookAround_root
   m_TagString: Untagged
@@ -190,6 +191,20 @@ Transform:
   m_Father: {fileID: 7448398249960966780}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5688610910068141960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448398249846719791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b9a309017358742a6e172f8426b285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRoot: {fileID: 7448398249960966780}
+  lookAroundRoot: {fileID: 7448398249846719788}
 --- !u!1 &7448398249960966783
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7448398249960966780}
   - component: {fileID: 7448398249960966781}
+  - component: {fileID: 8798050644744864562}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -240,6 +256,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8798050644744864562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448398249960966783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d202f934581c7de498bac028694f6937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jump_force: 10
 --- !u!1 &7448398250797422943
 GameObject:
   m_ObjectHideFlags: 0
