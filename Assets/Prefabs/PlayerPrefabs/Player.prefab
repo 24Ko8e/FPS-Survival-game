@@ -205,6 +205,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRoot: {fileID: 7448398249960966780}
   lookAroundRoot: {fileID: 7448398249846719788}
+  invert: 0
+  canUnlock: 1
+  sensitivity: 5
+  smoothSteps: 10
+  smoothWeight: 0.4
+  rollAngle: 0
+  rollSpeed: 3
+  lookLimits: {x: -90, y: 90}
 --- !u!1 &7448398249960966783
 GameObject:
   m_ObjectHideFlags: 0
