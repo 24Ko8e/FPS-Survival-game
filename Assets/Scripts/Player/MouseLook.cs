@@ -19,6 +19,11 @@ public class MouseLook : MonoBehaviour
     float currentRollAngle;
     int lastLookFrame;
 
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
