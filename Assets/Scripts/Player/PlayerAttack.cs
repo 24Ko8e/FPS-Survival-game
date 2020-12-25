@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Animator camZoomAnimator;
     bool isZoomed;
+    bool isAiming;
     Camera mainCam;
     public GameObject crosshair;
 
@@ -58,7 +59,18 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
+                    if (isAiming)
+                    {
+                        weaponManager.getSelectedWeapon().shootAnimation();
+                        if (weaponManager.getSelectedWeapon().bulletType == weaponBulletType.ARROW)
+                        {
 
+                        }
+                        if (weaponManager.getSelectedWeapon().bulletType == weaponBulletType.SPEAR)
+                        {
+
+                        }
+                    }
                 }
             }
         }
@@ -71,6 +83,34 @@ public class PlayerAttack : MonoBehaviour
 
     private void ZoomInAndOut()
     {
+        if (weaponManager.getSelectedWeapon().weapon_Aim == weaponAim.AIM)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                camZoomAnimator.Play("ZoomIn");
+                crosshair.SetActive(false);
+            }
 
+            if (Input.GetMouseButtonUp(1))
+            {
+                camZoomAnimator.Play("ZoomOut");
+                crosshair.SetActive(true);
+            }
+        }
+
+        if (weaponManager.getSelectedWeapon().weapon_Aim == weaponAim.SELF_AIM)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                weaponManager.getSelectedWeapon().Aim(true);
+                isAiming = true;
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                weaponManager.getSelectedWeapon().Aim(false);
+                isAiming = false;
+            }
+        }
     }
 }
