@@ -3,7 +3,12 @@ guid: cd641b76926673240b6125215b52a5cf
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wooden Spear
+    second: {fileID: 2100000, guid: dfbfc7ee609d91c4abe07792e1500fc1, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

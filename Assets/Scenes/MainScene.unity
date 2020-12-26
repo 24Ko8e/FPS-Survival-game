@@ -441,12 +441,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa7bf25b446c4baa8e0af352f470d1b, type: 3}
---- !u!95 &1397660825 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1397660825, guid: cd40aac1b8216c0438563956c331e0c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 7448398249375748930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1590905986
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,16 +527,6 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1590905986}
-    - target: {fileID: 5489525042940963887, guid: cd40aac1b8216c0438563956c331e0c0,
-        type: 3}
-      propertyPath: camZoomAnimator
-      value: 
-      objectReference: {fileID: 1397660825}
-    - target: {fileID: 7448398249696819836, guid: cd40aac1b8216c0438563956c331e0c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7448398249960966780, guid: cd40aac1b8216c0438563956c331e0c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -602,11 +586,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7448398250830482823, guid: cd40aac1b8216c0438563956c331e0c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd40aac1b8216c0438563956c331e0c0, type: 3}

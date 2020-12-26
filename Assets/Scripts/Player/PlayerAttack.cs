@@ -16,6 +16,12 @@ public class PlayerAttack : MonoBehaviour
     Camera mainCam;
     public GameObject crosshair;
 
+    [SerializeField]
+    GameObject arrow, spear;
+
+    [SerializeField]
+    Transform arrow_spearStartPosition;
+
     void Awake()
     {
         weaponManager = GetComponent<WeaponManager>();
@@ -64,11 +70,11 @@ public class PlayerAttack : MonoBehaviour
                         weaponManager.getSelectedWeapon().shootAnimation();
                         if (weaponManager.getSelectedWeapon().bulletType == weaponBulletType.ARROW)
                         {
-
+                            throwArrowOrSpear(true);
                         }
                         if (weaponManager.getSelectedWeapon().bulletType == weaponBulletType.SPEAR)
                         {
-
+                            throwArrowOrSpear(false);
                         }
                     }
                 }
@@ -111,6 +117,22 @@ public class PlayerAttack : MonoBehaviour
                 weaponManager.getSelectedWeapon().Aim(false);
                 isAiming = false;
             }
+        }
+    }
+
+    void throwArrowOrSpear(bool isArrow)
+    {
+        if (isArrow)
+        {
+            GameObject arrowInst = Instantiate(arrow);
+            arrowInst.transform.position = arrow_spearStartPosition.position;
+            arrowInst.GetComponent<BowArrow>().Launch(mainCam);
+        }
+        else
+        {
+            GameObject spearInst = Instantiate(spear);
+            spearInst.transform.position = arrow_spearStartPosition.position;
+            spearInst.GetComponent<BowArrow>().Launch(mainCam);
         }
     }
 }
