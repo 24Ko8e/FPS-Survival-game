@@ -84,7 +84,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void BullerFired()
     {
-        
+        RaycastHit hit;
+        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
+        {
+            
+        }
     }
 
     private void ZoomInAndOut()
