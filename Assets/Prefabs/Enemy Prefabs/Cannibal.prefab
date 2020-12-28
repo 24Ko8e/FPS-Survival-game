@@ -134,6 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9352a9ae61459264eac464b62b75ff2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAnim: {fileID: 1681620952}
+  navAgent: {fileID: 4220950989727696981}
+  walkSpeed: 0.5
+  runSpeed: 4
+  chaseDistance: 7
+  attackDist: 2.05
+  RunawayDistanceBuffer: 2
+  patrolRadiusMin: 20
+  patrolRadiusMax: 60
+  patrolDuration: 15
+  waitBeforeAttack: 2
 --- !u!1 &4220950989727600131
 GameObject:
   m_ObjectHideFlags: 0
