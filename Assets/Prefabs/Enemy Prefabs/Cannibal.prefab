@@ -137,8 +137,8 @@ MonoBehaviour:
   enemyAnim: {fileID: 1681620952}
   navAgent: {fileID: 4220950989727696981}
   walkSpeed: 0.5
-  runSpeed: 4
-  chaseDistance: 7
+  runSpeed: 2
+  chaseDistance: 10
   attackDist: 2.05
   RunawayDistanceBuffer: 2
   patrolRadiusMin: 20

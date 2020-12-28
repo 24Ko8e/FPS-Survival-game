@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour
                 chaseDistance = currentChaseDist;
             }
         }
-        else
+        else if (Vector3.Distance(transform.position, target.position) > chaseDistance)
         {
             enemyAnim.Run(false);
             enemyState = EnemyState.PATROL;
