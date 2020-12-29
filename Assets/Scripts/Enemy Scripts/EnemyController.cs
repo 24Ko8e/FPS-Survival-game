@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
     float attackTimer;
 
     Transform target;
+    public GameObject attackPoint;
 
     private void Awake()
     {
@@ -155,5 +156,16 @@ public class EnemyController : MonoBehaviour
         NavMesh.SamplePosition(randDir, out navHit, randRadius, -1);
 
         navAgent.SetDestination(navHit.position);
+    }
+
+    void turnOnAttackPoint()
+    {
+        attackPoint.SetActive(true);
+    }
+
+    void turnOffAttackPoint()
+    {
+        if (attackPoint.activeInHierarchy)
+            attackPoint.SetActive(false);
     }
 }
