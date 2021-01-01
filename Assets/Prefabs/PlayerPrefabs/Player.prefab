@@ -244,6 +244,7 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 1
+  weaponDamage: 42
   attackPoint: {fileID: 0}
 --- !u!1 &7448398249159886608
 GameObject:
@@ -453,6 +454,7 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   fireType: 1
   bulletType: 0
+  weaponDamage: 32
   attackPoint: {fileID: 0}
 --- !u!1 &7448398249763274291
 GameObject:
@@ -685,6 +687,7 @@ MonoBehaviour:
   - {fileID: 6533909758162012376}
   - {fileID: 6763422379289670929}
   - {fileID: 7854785573524237036}
+  currentWeaponDamage: 0
 --- !u!114 &5489525042940963887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,7 +701,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireRate: 15
-  damage: 20
   camZoomAnimator: {fileID: 1397660825}
   crosshair: {fileID: 0}
   arrow: {fileID: 387181995270077346, guid: cbc9d5e17daf5594e89c0ea7dc961088, type: 3}
@@ -930,6 +932,7 @@ MonoBehaviour:
   reloadSound: {fileID: 6374209917601968897}
   fireType: 0
   bulletType: 0
+  weaponDamage: 65
   attackPoint: {fileID: 0}
 --- !u!1 &7448398250797422943
 GameObject:
@@ -985,6 +988,7 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 2
+  weaponDamage: 45
   attackPoint: {fileID: 0}
 --- !u!82 &5652300336907076476
 AudioSource:
@@ -1100,6 +1104,7 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 0
+  weaponDamage: 15
   attackPoint: {fileID: 0}
 --- !u!82 &2241334134464225992
 AudioSource:
@@ -1215,6 +1220,7 @@ MonoBehaviour:
   reloadSound: {fileID: 0}
   fireType: 0
   bulletType: 3
+  weaponDamage: 150
   attackPoint: {fileID: 15857465}
 --- !u!1001 &7448398249049369567
 PrefabInstance:

@@ -168,4 +168,6 @@ public class EnemyController : MonoBehaviour
         if (attackPoint.activeInHierarchy)
             attackPoint.SetActive(false);
     }
+
+    public EnemyState EnemyState { get; set; }
 }

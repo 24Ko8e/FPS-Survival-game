@@ -6,13 +6,15 @@ public class WeaponManager : MonoBehaviour
 {
     [SerializeField]
     WeaponHandler[] weapons;
-
+    [HideInInspector]
+    public float currentWeaponDamage;
     int currentWeaponIndex;
 
     void Start()
     {
         currentWeaponIndex = 0;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
+        currentWeaponDamage = weapons[currentWeaponIndex].weaponDamage;
     }
 
     void Update()
@@ -49,9 +51,9 @@ public class WeaponManager : MonoBehaviour
             return;
 
         weapons[currentWeaponIndex].gameObject.SetActive(false);
-
         currentWeaponIndex = weaponIndex;
         weapons[currentWeaponIndex].gameObject.SetActive(true);
+        currentWeaponDamage = weapons[currentWeaponIndex].weaponDamage;
     }
 
     public WeaponHandler getSelectedWeapon()

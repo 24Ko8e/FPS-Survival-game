@@ -35,7 +35,7 @@ public class WeaponHandler : MonoBehaviour
     AudioSource shootSound, reloadSound;
     public weaponFireType fireType;
     public weaponBulletType bulletType;
-
+    public float weaponDamage;
     public GameObject attackPoint;
 
     private void Awake()

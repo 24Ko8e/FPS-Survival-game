@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b87dc1fae55c064b82ae126118dd2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 120
   isPlayer: 0
   isBoar: 0
   isCannibal: 1

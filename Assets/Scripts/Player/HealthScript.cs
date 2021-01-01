@@ -17,6 +17,12 @@ public class HealthScript : MonoBehaviour
     {
         if (isBoar || isCannibal)
         {
+            enemyAnim = GetComponent<EnemyAnimator>();
+            enemyController = GetComponent<EnemyController>();
+            navAgent = GetComponent<NavMeshAgent>();
+        }
+        if (isPlayer)
+        {
 
         }
     }
@@ -29,5 +35,24 @@ public class HealthScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void applyDamage(float damage)
+    {
+        if (isDead)
+            return;
+
+        health -= damage;
+        if (isPlayer)
+        {
+
+        }
+        if (isBoar || isCannibal)
+        {
+            if (enemyController.EnemyState == EnemyState.PATROL)
+            {
+                enemyController.chaseDistance = 50f;
+            }
+        }
     }
 }
