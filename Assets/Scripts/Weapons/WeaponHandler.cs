@@ -30,12 +30,11 @@ public class WeaponHandler : MonoBehaviour
 
     [SerializeField]
     GameObject muzzleFlash;
-
+    public float weaponDamage;
     [SerializeField]
     AudioSource shootSound, reloadSound;
     public weaponFireType fireType;
     public weaponBulletType bulletType;
-    public float weaponDamage;
     public GameObject attackPoint;
 
     private void Awake()

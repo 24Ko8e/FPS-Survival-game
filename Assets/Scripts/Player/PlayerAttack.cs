@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     WeaponManager weaponManager;
     public float fireRate = 15f;
     float nxtTimeToFire;
-    float damage = 20f;
+    public float damage = 20f;
 
     public Animator camZoomAnimator;
     bool isZoomed;
@@ -26,7 +26,6 @@ public class PlayerAttack : MonoBehaviour
     {
         weaponManager = GetComponent<WeaponManager>();
         mainCam = Camera.main;
-        damage = weaponManager.currentWeaponDamage;
     }
 
     void Start()
@@ -42,15 +41,14 @@ public class PlayerAttack : MonoBehaviour
 
     void WeaponShoot()
     {
-        damage = weaponManager.currentWeaponDamage;
-
         if (weaponManager.getSelectedWeapon().fireType == weaponFireType.MULTIPLE)
         {
             if (Input.GetMouseButton(0) && Time.time > nxtTimeToFire)
             {
                 nxtTimeToFire = Time.time + 1f / fireRate;
                 weaponManager.getSelectedWeapon().shootAnimation();
-                BullerFired();
+                damage = weaponManager.getSelectedWeapon().weaponDamage;
+                BulletFired();
             }
         }
         else
@@ -64,7 +62,8 @@ public class PlayerAttack : MonoBehaviour
                 if (weaponManager.getSelectedWeapon().bulletType == weaponBulletType.BULLET)
                 {
                     weaponManager.getSelectedWeapon().shootAnimation();
-                    BullerFired();
+                    damage = weaponManager.getSelectedWeapon().weaponDamage;
+                    BulletFired();
                 }
                 else
                 {
@@ -85,13 +84,14 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void BullerFired()
+    private void BulletFired()
     {
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit))
         {
             if (hit.transform.tag == "Enemy")
             {
+                Debug.Log("Dealt " + damage + " damage to " + hit.transform.name);
                 hit.transform.GetComponent<HealthScript>().applyDamage(damage);
             }
         }
