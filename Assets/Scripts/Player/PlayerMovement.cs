@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
     float standHeight = 1.6f;
     float crouchHeight = 1f;
     bool isCrouching = false;
+
+    [SerializeField] Image staminaBar;
+    float stamina = 100f;
+    float staminaDepletionMultiplier = 15f;
 
     private void Awake()
     {
@@ -79,7 +84,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Sprint()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching)
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouching && stamina > 0f && movement.magnitude > 0)
         {
             speed = sprintSpeed;
 
@@ -94,6 +101,29 @@ public class PlayerMovement : MonoBehaviour
             playerFootsteps.stepDistance = walkStepDistance;
             playerFootsteps.volumeMin = walkVolumeMin;
             playerFootsteps.volumeMax = walkVolumeMax;
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && !isCrouching && movement.magnitude > 0)
+        {
+            stamina -= staminaDepletionMultiplier * Time.deltaTime;
+            if (stamina <= 0f)
+            {
+                stamina = 0f;
+                speed = moveSpeed;
+                playerFootsteps.stepDistance = walkStepDistance;
+                playerFootsteps.volumeMin = walkVolumeMin;
+                playerFootsteps.volumeMax = walkVolumeMax;
+            }
+            setPlayerStaminaBar(stamina);
+        }
+        else if (stamina != 100f)
+        {
+            stamina += (staminaDepletionMultiplier / 2) * Time.deltaTime;
+            setPlayerStaminaBar(stamina);
+
+            if (stamina > 100f)
+            {
+                stamina = 100f;
+            }
         }
     }
 
@@ -124,5 +154,11 @@ public class PlayerMovement : MonoBehaviour
                 isCrouching = true;
             }
         }
+    }
+
+    void setPlayerStaminaBar(float stamina)
+    {
+        stamina /= 100f;
+        staminaBar.fillAmount = stamina;
     }
 }

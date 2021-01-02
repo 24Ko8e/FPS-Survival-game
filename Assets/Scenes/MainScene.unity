@@ -1032,6 +1032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannibal
       objectReference: {fileID: 0}
+    - target: {fileID: 4220950989727600129, guid: c3cf85ca0e81ade46a876816dd53dbbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3cf85ca0e81ade46a876816dd53dbbc, type: 3}
 --- !u!1001 &7448398249375748930
@@ -1041,6 +1046,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2026501948758590933, guid: cd40aac1b8216c0438563956c331e0c0,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 120583105}
     - target: {fileID: 5489525042940963887, guid: cd40aac1b8216c0438563956c331e0c0,
         type: 3}
       propertyPath: crosshair
@@ -1106,6 +1116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8798050644744864562, guid: cd40aac1b8216c0438563956c331e0c0,
+        type: 3}
+      propertyPath: staminaBar
+      value: 
+      objectReference: {fileID: 1815908549}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd40aac1b8216c0438563956c331e0c0, type: 3}
 --- !u!1001 &7768802962129045873
@@ -1174,6 +1189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768802962393917668, guid: d060d2cce8517694eb7a5b83420eb41d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d060d2cce8517694eb7a5b83420eb41d, type: 3}

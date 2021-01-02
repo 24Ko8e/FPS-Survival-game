@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class HealthScript : MonoBehaviour
@@ -10,6 +11,7 @@ public class HealthScript : MonoBehaviour
     NavMeshAgent navAgent;
     EnemyController enemyController;
     [SerializeField] EnemyAudio enemyAudio;
+    [SerializeField] Image healthBar;
 
     public float health = 100f;
     public bool isPlayer, isBoar, isCannibal;
@@ -47,7 +49,7 @@ public class HealthScript : MonoBehaviour
         health -= damage;
         if (isPlayer)
         {
-
+            setPlayerHealthBar(health);
         }
         if (isBoar || isCannibal)
         {
@@ -61,6 +63,12 @@ public class HealthScript : MonoBehaviour
             playerDied();
             isDead = true;
         }
+    }
+
+    void setPlayerHealthBar(float health)
+    {
+        health /= 100f;
+        healthBar.fillAmount = health;
     }
 
     private void playerDied()

@@ -875,6 +875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b87dc1fae55c064b82ae126118dd2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAudio: {fileID: 0}
+  healthBar: {fileID: 0}
   health: 180
   isPlayer: 0
   isBoar: 1
@@ -1402,7 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b03963c89adf804b9b091d047bc31d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 22
   radius: 1
   layerMask:
     serializedVersion: 2
