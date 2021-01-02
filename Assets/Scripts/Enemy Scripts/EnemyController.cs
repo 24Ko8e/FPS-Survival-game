@@ -33,6 +33,9 @@ public class EnemyController : MonoBehaviour
     Transform target;
     public GameObject attackPoint;
 
+    [SerializeField]
+    EnemyAudio enemyAudio;
+
     private void Awake()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -73,6 +76,7 @@ public class EnemyController : MonoBehaviour
         {
             enemyAnim.Attack();
             attackTimer = 0;
+            enemyAudio.PlayAttackSound();
         }
 
         if (Vector3.Distance(transform.position, target.position) > attackDist + RunawayDistanceBuffer)
@@ -143,6 +147,7 @@ public class EnemyController : MonoBehaviour
         {
             enemyAnim.Walk(false);
             enemyState = EnemyState.CHASE;
+            enemyAudio.PlayScreamSound();
         }
     }
 

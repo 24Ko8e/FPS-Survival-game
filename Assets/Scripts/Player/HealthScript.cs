@@ -9,6 +9,7 @@ public class HealthScript : MonoBehaviour
     EnemyAnimator enemyAnim;
     NavMeshAgent navAgent;
     EnemyController enemyController;
+    [SerializeField] EnemyAudio enemyAudio;
 
     public float health = 100f;
     public bool isPlayer, isBoar, isCannibal;
@@ -71,7 +72,7 @@ public class HealthScript : MonoBehaviour
             enemyController.enabled = false;
             navAgent.enabled = false;
             enemyAnim.enabled = false;
-
+            StartCoroutine(deathSound());
         }
 
         if (isBoar)
@@ -80,7 +81,7 @@ public class HealthScript : MonoBehaviour
             navAgent.isStopped = true;
             enemyController.enabled = false;
             enemyAnim.Dead();
-
+            StartCoroutine(deathSound());
         }
         if (isPlayer)
         {
@@ -93,5 +94,11 @@ public class HealthScript : MonoBehaviour
             // show game over screen and restart the game
 
         }
+    }
+
+    IEnumerator deathSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        enemyAudio.PlayDeadSound();
     }
 }
