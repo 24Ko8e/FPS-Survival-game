@@ -6,10 +6,7 @@ public class MouseLook : MonoBehaviour
 {
     [SerializeField] Transform playerRoot, lookAroundRoot;
     [SerializeField] bool invert = false;
-    [SerializeField] bool canUnlock = true;
     [SerializeField] float sensitivity = 5f;
-    [SerializeField] int smoothSteps = 10;
-    [SerializeField] float smoothWeight = 0.4f;
     [SerializeField] float rollAngle = 10f;
     [SerializeField] float rollSpeed = 3f;
     [SerializeField] Vector2 lookLimits = new Vector2(-90f, 90f);
@@ -28,6 +25,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -48,6 +46,7 @@ public class MouseLook : MonoBehaviour
             if (Cursor.lockState == CursorLockMode.Locked)
             {
                 Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {

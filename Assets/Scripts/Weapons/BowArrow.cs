@@ -7,7 +7,7 @@ public class BowArrow : MonoBehaviour
     Rigidbody body;
     public float speed = 30f;
     public float deactivateTimer = 3f;
-    public float damage = 15f;
+    public float damage = 35f;
 
     private void Awake()
     {
@@ -40,6 +40,10 @@ public class BowArrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider target)
     {
-        
+        if(target.tag == "Enemy")
+        {
+            target.GetComponent<HealthScript>().applyDamage(damage);
+            gameObject.SetActive(false);
+        }
     }
 }

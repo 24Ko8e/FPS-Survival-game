@@ -63,6 +63,11 @@ public class EnemyController : MonoBehaviour
         {
             Attack();
         }
+
+        if (target.gameObject.GetComponent<HealthScript>().isDead)
+        {
+            enemyState = EnemyState.PATROL;
+        }
     }
 
     private void Attack()

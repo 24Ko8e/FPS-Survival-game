@@ -15,7 +15,7 @@ public class HealthScript : MonoBehaviour
 
     public float health = 100f;
     public bool isPlayer, isBoar, isCannibal;
-    bool isDead;
+    public bool isDead;
 
     private void Awake()
     {
@@ -81,6 +81,8 @@ public class HealthScript : MonoBehaviour
             navAgent.enabled = false;
             enemyAnim.enabled = false;
             StartCoroutine(deathSound());
+            EnemyManager.instance.disableEnemy(this.gameObject);
+            EnemyManager.instance.enemyDied(true);
         }
 
         if (isBoar)
@@ -90,15 +92,18 @@ public class HealthScript : MonoBehaviour
             enemyController.enabled = false;
             enemyAnim.Dead();
             StartCoroutine(deathSound());
+            EnemyManager.instance.disableEnemy(this.gameObject);
+            EnemyManager.instance.enemyDied(false);
         }
         if (isPlayer)
         {
             // disable enemy controller for all enemies
+            //EnemyManager.instance.disableEnemyControllers();
 
             GetComponent<PlayerMovement>().enabled = false;
             GetComponent<PlayerAttack>().enabled = false;
             GetComponent<WeaponManager>().getSelectedWeapon().gameObject.SetActive(false);
-
+            EnemyManager.instance.stopSpawning();
             // show game over screen and restart the game
 
         }

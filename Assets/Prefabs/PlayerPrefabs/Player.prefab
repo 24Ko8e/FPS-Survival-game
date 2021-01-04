@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 7448398249159886609}
   - component: {fileID: 7448398249159886614}
   - component: {fileID: 1397660825}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FP_Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,12 +310,12 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 256
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -467,7 +467,9 @@ GameObject:
   - component: {fileID: 7448398249763274294}
   - component: {fileID: 7448398249763274289}
   - component: {fileID: 7448398249763274288}
-  m_Layer: 0
+  - component: {fileID: 1537434311}
+  - component: {fileID: 1537434312}
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -519,13 +521,13 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
-  m_RenderingPath: -1
+    m_Bits: 2103
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -539,6 +541,83 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7448398249763274291}
   m_Enabled: 1
+--- !u!114 &1537434311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448398249763274291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 7448398249763274294}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 3
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.55
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &1537434312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448398249763274291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 48b95b1b1417f734892898fe831e633a, type: 2}
+  isGlobal: 1
+  blendDistance: 200
+  weight: 1
+  priority: 0
 --- !u!1 &7448398249846719791
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,10 +667,7 @@ MonoBehaviour:
   playerRoot: {fileID: 7448398249960966780}
   lookAroundRoot: {fileID: 7448398249846719788}
   invert: 0
-  canUnlock: 1
   sensitivity: 5
-  smoothSteps: 10
-  smoothWeight: 0.4
   rollAngle: 0
   rollSpeed: 3
   lookLimits: {x: -90, y: 90}
@@ -668,6 +744,7 @@ MonoBehaviour:
   sprintSpeed: 8
   moveSpeed: 4
   crouchSpeed: 1.5
+  staminaBar: {fileID: 0}
 --- !u!114 &496239962859517125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,10 +796,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAudio: {fileID: 0}
+  healthBar: {fileID: 0}
   health: 100
   isPlayer: 1
   isBoar: 0
   isCannibal: 0
+  isDead: 0
 --- !u!82 &3663320744545400271
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1625,15 +1704,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 268fb23e097dcdf41864edde6d409239, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ba50ff5806385f4da160695a7223e1d, type: 3}
---- !u!4 &7448398249049502063 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400048, guid: 9ba50ff5806385f4da160695a7223e1d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7448398249049369567}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7448398249049402639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100048, guid: 9ba50ff5806385f4da160695a7223e1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7448398249049369567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7448398249049502063 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400048, guid: 9ba50ff5806385f4da160695a7223e1d,
     type: 3}
   m_PrefabInstance: {fileID: 7448398249049369567}
   m_PrefabAsset: {fileID: 0}
@@ -4634,12 +4713,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3336d43058b91ea4aa0f2e2b1c27eb2d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded3362b8b3b82243b3043bb355c770c, type: 3}
---- !u!4 &7448398251087240359 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400012, guid: ded3362b8b3b82243b3043bb355c770c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7448398251087365675}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7448398251087240357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400014, guid: ded3362b8b3b82243b3043bb355c770c,
@@ -4649,6 +4722,12 @@ Transform:
 --- !u!1 &7448398251087462533 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100014, guid: ded3362b8b3b82243b3043bb355c770c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7448398251087365675}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7448398251087240359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400012, guid: ded3362b8b3b82243b3043bb355c770c,
     type: 3}
   m_PrefabInstance: {fileID: 7448398251087365675}
   m_PrefabAsset: {fileID: 0}

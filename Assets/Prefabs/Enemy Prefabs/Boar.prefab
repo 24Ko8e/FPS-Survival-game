@@ -875,12 +875,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b87dc1fae55c064b82ae126118dd2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAudio: {fileID: 0}
+  enemyAudio: {fileID: 493251830}
   healthBar: {fileID: 0}
   health: 180
   isPlayer: 0
   isBoar: 1
   isCannibal: 0
+  isDead: 0
 --- !u!1 &7768802962393917670
 GameObject:
   m_ObjectHideFlags: 0
