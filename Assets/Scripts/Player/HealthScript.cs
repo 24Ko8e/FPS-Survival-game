@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class HealthScript : MonoBehaviour
 {
@@ -83,6 +84,7 @@ public class HealthScript : MonoBehaviour
             StartCoroutine(deathSound());
             EnemyManager.instance.disableEnemy(this.gameObject);
             EnemyManager.instance.enemyDied(true);
+            StartCoroutine(disableCannibal());
         }
 
         if (isBoar)
@@ -105,8 +107,20 @@ public class HealthScript : MonoBehaviour
             GetComponent<WeaponManager>().getSelectedWeapon().gameObject.SetActive(false);
             EnemyManager.instance.stopSpawning();
             // show game over screen and restart the game
-
+            StartCoroutine(restartGame());
         }
+    }
+
+    private IEnumerator restartGame()
+    {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator disableCannibal()
+    {
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
     }
 
     IEnumerator deathSound()
