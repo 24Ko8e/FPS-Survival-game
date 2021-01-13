@@ -1,2 +1,2 @@
 # FPS-Survival-game<br>
-You may follow the current progress at this [web link](https://ko8e.itch.io/fps-survival)
+You can play the webGL version of the game at this [web link](https://ko8e.itch.io/fps-survival)
